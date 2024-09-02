@@ -1,0 +1,12 @@
+{
+  "name": "boston-housing-prediction",
+  "version": "1.0.0",
+  "description": "This project involves the analysis and modeling of housing data using various machine learning techniques. The dataset includes features such as crime rate, number of rooms, age of buildings, and more, to predict the median value of owner-occupied homes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
