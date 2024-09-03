@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     async submitForm() {
-      const response = await fetch('http://127.0.0.1:5000/predict', {
+      const response = await fetch(' http://192.168.254.53:8080/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
