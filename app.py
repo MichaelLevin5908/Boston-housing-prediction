@@ -1,27 +1,36 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask import Flask, jsonify, request
 import pickle
 import numpy as np
+from flask_cors import CORS, cross_origin
 
+# Initialize our Flask application
 app = Flask(__name__)
-CORS(app)  # Apply CORS to the app
+
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 # Load the pre-trained model
-with open('linear_regression_model.pkl', 'rb') as file:
-    model = pickle.load(file)
+model = pickle.load(open('housing.pickle', 'rb'))
 
-@app.route('/predict', methods=['POST'])
+@app.route("/")
+@cross_origin()
+def hello_world():
+    return "Hello, cross-origin-world!"
+
+@app.route("/predict", methods=["GET"])
 def predict():
-    # Extract features from the JSON data
-    data = request.get_json()  # Get the JSON data from the request
-    features = [float(data[feature]) for feature in ['CRIM', 'ZN', 'RM', 'AGE', 'DIS']]
-    final_features = np.array(features).reshape(1, -1)
+    if request.method == 'GET':
+        crim = float(request.args.get('CRIM'))
+        zn = float(request.args.get('ZN'))
+        rm = float(request.args.get('RM'))
+        age = float(request.args.get('AGE'))
+        dis = float(request.args.get('DIS'))
 
-    # Predict using the loaded model
-    prediction = model.predict(final_features)
+        final_features = [[crim, zn, rm, age, dis]]
 
-    # Return the prediction result as JSON
-    return jsonify(prediction=f'{prediction[0]:,.2f}')
+        prediction = model.predict(final_features)
+
+        return jsonify(str("Predicted House Price: $" + f'{prediction[0]:,.2f}'))
 
 if __name__ == '__main__':
     app.run(debug=True)
