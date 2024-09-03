@@ -11,6 +11,18 @@
         <input type="text" id="ZN" v-model="form.ZN" required>
       </div>
       <div>
+        <label for="INDUS">INDUS (Proportion of Non-Retail Business Acres):</label>
+        <input type="text" id="INDUS" v-model="form.INDUS" required>
+      </div>
+      <div>
+        <label for="CHAS">CHAS (Charles River Dummy Variable):</label>
+        <input type="text" id="CHAS" v-model="form.CHAS" required>
+      </div>
+      <div>
+        <label for="NOX">NOX (Nitric Oxide Concentration):</label>
+        <input type="text" id="NOX" v-model="form.NOX" required>
+      </div>
+      <div>
         <label for="RM">RM (Average Number of Rooms):</label>
         <input type="text" id="RM" v-model="form.RM" required>
       </div>
@@ -21,6 +33,22 @@
       <div>
         <label for="DIS">DIS (Distance to Employment Centers):</label>
         <input type="text" id="DIS" v-model="form.DIS" required>
+      </div>
+      <div>
+        <label for="RAD">RAD (Index of Accessibility to Radial Highways):</label>
+        <input type="text" id="RAD" v-model="form.RAD" required>
+      </div>
+      <div>
+        <label for="TAX">TAX (Property Tax Rate):</label>
+        <input type="text" id="TAX" v-model="form.TAX" required>
+      </div>
+      <div>
+        <label for="PTRATIO">PTRATIO (Pupil-Teacher Ratio):</label>
+        <input type="text" id="PTRATIO" v-model="form.PTRATIO" required>
+      </div>
+      <div>
+        <label for="LSTAT">LSTAT (Lower Status Population Percentage):</label>
+        <input type="text" id="LSTAT" v-model="form.LSTAT" required>
       </div>
       <button type="submit">Predict</button>
     </form>
@@ -37,24 +65,36 @@ export default {
       form: {
         CRIM: '',
         ZN: '',
+        INDUS: '',
+        CHAS: '',
+        NOX: '',
         RM: '',
         AGE: '',
         DIS: '',
+        RAD: '',
+        TAX: '',
+        PTRATIO: '',
+        B: '',
+        LSTAT: '',
       },
       prediction: ''
     };
   },
   methods: {
     async submitForm() {
-      const response = await fetch('https://git.heroku.com/boston-housing-prediction/predict', {
+      const response = await fetch('https://your-app-name.herokuapp.com/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(this.form),
       });
-      const data = await response.json();
-      this.prediction = `$${data.prediction}`;
+      if (response.ok) {
+        const data = await response.json();
+        this.prediction = `$${data.prediction}`;
+      } else {
+        console.error('Error:', response.statusText);
+      }
     }
   }
 }
