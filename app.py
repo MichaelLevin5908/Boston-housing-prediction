@@ -1,5 +1,5 @@
-from flask import Flask, request, render_template
-from flask_cors import CORS  # Import CORS
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 import pickle
 import numpy as np
 
@@ -12,16 +12,16 @@ with open('linear_regression_model.pkl', 'rb') as file:
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    if request.method == 'POST':
-        # Extract features from the form data
-        features = [float(request.form[feature]) for feature in ['CRIM', 'ZN', 'RM', 'AGE', 'DIS']]
-        final_features = np.array(features).reshape(1, -1)
+    # Extract features from the JSON data
+    data = request.get_json()  # Get the JSON data from the request
+    features = [float(data[feature]) for feature in ['CRIM', 'ZN', 'RM', 'AGE', 'DIS']]
+    final_features = np.array(features).reshape(1, -1)
 
-        # Predict using the loaded model
-        prediction = model.predict(final_features)
+    # Predict using the loaded model
+    prediction = model.predict(final_features)
 
-        # Return the prediction result to the frontend
-        return render_template('index.html', prediction_text=f'Predicted House Price: ${prediction[0]:,.2f}')
+    # Return the prediction result as JSON
+    return jsonify(prediction=f'{prediction[0]:,.2f}')
 
 if __name__ == '__main__':
     app.run(debug=True)

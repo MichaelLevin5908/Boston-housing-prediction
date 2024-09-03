@@ -3,40 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Housing Price Prediction</title>
+    <title>House Price Prediction</title>
 </head>
 <body>
-    <div style="text-align:center;">
-        <h1>Housing Price Prediction</h1>
-        <form action="{{ url_for('predict') }}" method="POST">
-            <div>
-                <label for="CRIM">CRIM (Crime Rate):</label>
-                <input type="text" id="CRIM" name="CRIM" required>
-            </div>
-            <div>
-                <label for="ZN">ZN (Residential Land Zone Proportion):</label>
-                <input type="text" id="ZN" name="ZN" required>
-            </div>
-            <div>
-                <label for="RM">RM (Average Number of Rooms):</label>
-                <input type="text" id="RM" name="RM" required>
-            </div>
-            <div>
-                <label for="AGE">AGE (Proportion of Old Units):</label>
-                <input type="text" id="AGE" name="AGE" required>
-            </div>
-            <div>
-                <label for="DIS">DIS (Distance to Employment Centers):</label>
-                <input type="text" id="DIS" name="DIS" required>
-            </div>
-            <button type="submit">Predict</button>
-        </form>
-        <div>
-            {% if prediction_text %}
-                <h2>{{ prediction_text }}</h2>
-            {% endif %}
-        </div>
-    </div>
+    <h1>Predict House Price</h1>
+    <form action="/predict" method="POST">
+        <label for="CRIM">CRIM:</label>
+        <input type="text" id="CRIM" name="CRIM"><br><br>
+
+        <label for="ZN">ZN:</label>
+        <input type="text" id="ZN" name="ZN"><br><br>
+
+        <label for="RM">RM:</label>
+        <input type="text" id="RM" name="RM"><br><br>
+
+        <label for="AGE">AGE:</label>
+        <input type="text" id="AGE" name="AGE"><br><br>
+
+        <label for="DIS">DIS:</label>
+        <input type="text" id="DIS" name="DIS"><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <h2>{{ prediction_text }}</h2>
 </body>
 </html>
-
