@@ -1,14 +1,14 @@
 <template>
   <div class="container-fluid d-flex flex-column justify-content-center align-items-center" style="min-height: 100vh;">
     <div class="text-center mb-4">
-      <h1 v-if="!APIResult.length">Enter Housing Data to Make Prediction</h1>
+      <h1 v-if="!APIResult.length" class="title">Enter Housing Data to Make Prediction</h1>
       <h1 v-else style="font-size:4rem">{{ APIResult }}</h1>
     </div>
     <div class="card p-4 shadow-sm" style="width: 100%; max-width: 700px;">
       <form @submit.prevent="predict">
         <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="CRIM">CRIM</label>
+          <div class="form-group col-md-6 d-flex">
+            <label for="CRIM" class="label-width">CRIM</label>
             <input
               class="form-control form-control-lg"
               v-model.trim="housingData.CRIM"
@@ -18,8 +18,8 @@
               required
             />
           </div>
-          <div class="form-group col-md-6">
-            <label for="ZN">ZN</label>
+          <div class="form-group col-md-6 d-flex">
+            <label for="ZN" class="label-width">ZN</label>
             <input
               class="form-control form-control-lg"
               v-model.trim="housingData.ZN"
@@ -31,8 +31,8 @@
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="INDUS">INDUS</label>
+          <div class="form-group col-md-6 d-flex">
+            <label for="INDUS" class="label-width">INDUS</label>
             <input
               class="form-control form-control-lg"
               v-model.trim="housingData.INDUS"
@@ -42,8 +42,8 @@
               required
             />
           </div>
-          <div class="form-group col-md-6">
-            <label for="CHAS">CHAS</label>
+          <div class="form-group col-md-6 d-flex">
+            <label for="CHAS" class="label-width">CHAS</label>
             <input
               class="form-control form-control-lg"
               v-model.trim="housingData.CHAS"
@@ -55,8 +55,8 @@
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="NOX">NOX</label>
+          <div class="form-group col-md-6 d-flex">
+            <label for="NOX" class="label-width">NOX</label>
             <input
               class="form-control form-control-lg"
               v-model.trim="housingData.NOX"
@@ -66,8 +66,8 @@
               required
             />
           </div>
-          <div class="form-group col-md-6">
-            <label for="RM">RM</label>
+          <div class="form-group col-md-6 d-flex">
+            <label for="RM" class="label-width">RM</label>
             <input
               class="form-control form-control-lg"
               v-model.trim="housingData.RM"
@@ -79,8 +79,8 @@
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="AGE">AGE</label>
+          <div class="form-group col-md-6 d-flex">
+            <label for="AGE" class="label-width">AGE</label>
             <input
               class="form-control form-control-lg"
               v-model.trim="housingData.AGE"
@@ -90,8 +90,8 @@
               required
             />
           </div>
-          <div class="form-group col-md-6">
-            <label for="DIS">DIS</label>
+          <div class="form-group col-md-6 d-flex">
+            <label for="DIS" class="label-width">DIS</label>
             <input
               class="form-control form-control-lg"
               v-model.trim="housingData.DIS"
@@ -103,8 +103,8 @@
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="RAD">RAD</label>
+          <div class="form-group col-md-6 d-flex">
+            <label for="RAD" class="label-width">RAD</label>
             <input
               class="form-control form-control-lg"
               v-model.trim="housingData.RAD"
@@ -114,8 +114,8 @@
               required
             />
           </div>
-          <div class="form-group col-md-6">
-            <label for="TAX">TAX</label>
+          <div class="form-group col-md-6 d-flex">
+            <label for="TAX" class="label-width">TAX</label>
             <input
               class="form-control form-control-lg"
               v-model.trim="housingData.TAX"
@@ -127,8 +127,8 @@
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="PTRATIO">PTRATIO</label>
+          <div class="form-group col-md-6 d-flex">
+            <label for="PTRATIO" class="label-width">PTRATIO</label>
             <input
               class="form-control form-control-lg"
               v-model.trim="housingData.PTRATIO"
@@ -138,10 +138,8 @@
               required
             />
           </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-12">
-            <label for="LSTAT">LSTAT</label>
+          <div class="form-group col-md-6 d-flex">
+            <label for="LSTAT" class="label-width">LSTAT</label>
             <input
               class="form-control form-control-lg"
               v-model.trim="housingData.LSTAT"
@@ -189,7 +187,6 @@ export default {
         RAD: "",
         TAX: "",
         PTRATIO: "",
-        
         LSTAT: ""
       },
       APIResult: [],
@@ -234,26 +231,37 @@ export default {
 };
 </script>
 
-<style>
+<style>/* Custom styles */
 /* Custom styles */
 body {
   background-color: #f8f9fa;
-  position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
 .card {
   border-radius: 10px;
   border: none;
+  width: 100%;
+  max-width: 700px;
 }
 
-h1 {
+h1.title {
   font-weight: 300;
   color: #343a40;
+  font-size: 2.5rem; /* Larger font size for the title */
+  text-align: center; /* Center align the title */
+  margin-bottom: 1.5rem;
 }
 
 .form-control {
   border-radius: 0.375rem;
   border: 1px solid #ced4da;
+  font-size: 1.25rem; /* Larger font size for input text */
+  width: calc(100% - 140px); /* Adjusted to fit alongside label */
 }
 
 .form-control-lg {
@@ -262,9 +270,24 @@ h1 {
   line-height: 1.5;
 }
 
+.label-width {
+  min-width: 140px; /* Increased label width */
+  margin-right: 10px; /* Spacing between label and input */
+  font-size: 1.25rem; /* Larger font size for labels */
+  text-align: right; /* Align labels to the right */
+}
+
+.form-group {
+  margin-bottom: 1rem; /* Increased spacing between form groups */
+  display: flex;
+  align-items: center; /* Vertically center labels with inputs */
+}
+
 .btn-primary {
   background-color: #007bff;
   border-color: #007bff;
+  width: 100%;
+  max-width: 700px; /* Align the button width with the form */
 }
 
 .btn-primary:hover {
@@ -279,13 +302,15 @@ h1 {
 
 .alert-danger {
   border-radius: 0.375rem;
-
+}
 
 .btn-submit {
-  padding: 1rem 2rem; 
-  font-size: 1.5rem; 
-} 
-
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  margin-top: 20px; /* Add margin to space out from the form */
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
-</style>
 
+</style>
