@@ -143,7 +143,7 @@
 <script>
 import { getAPI } from "@/axios";
 export default {
-  name: "Posts",
+  name: "PredictionPosts",
   data() {
     return {
       housingData: {
