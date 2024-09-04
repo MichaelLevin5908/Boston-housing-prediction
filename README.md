@@ -13,11 +13,19 @@ To run this project, you need to have Python installed along with the required p
 
 ### Prerequisites
 
-- Python 3.x
+- Python 3.14
 - Jupyter Notebook
+- Node JS
+- Vue
 
 ### Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/YourUsername/YourRepoName.git
+   git clone https://github.com/YourUsername/Boston-housing-prediction.git
+
+2.Install the dependencies
+
+3.First write in the terminal flask run
+
+4.Then in another terminal run npm serve app
