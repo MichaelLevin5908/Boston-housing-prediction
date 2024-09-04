@@ -1,16 +1,17 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import Prediction from './views/Prediction.vue';
 
-Vue.use(VueRouter);
+const routes = [
+  {
+    path: '/',
+    name: 'prediction',
+    component: Prediction,
+  },
+];
 
-export default new VueRouter({
-  mode: 'history',
-  routes: [
-    {
-      path: '/',
-      name: 'prediction',
-      component: Prediction,
-    },
-  ],
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
 });
+
+export default router;
