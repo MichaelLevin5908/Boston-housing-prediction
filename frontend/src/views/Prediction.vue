@@ -232,7 +232,7 @@ export default {
 </script>
 
 <style>/* Custom styles */
-/* Custom styles */
+/* Custom styles *//* Custom styles */
 body {
   background-color: #f8f9fa;
   display: flex;
@@ -261,7 +261,6 @@ h1.title {
   border-radius: 0.375rem;
   border: 1px solid #ced4da;
   font-size: 1.25rem; /* Larger font size for input text */
-  width: calc(100% - 140px); /* Adjusted to fit alongside label */
 }
 
 .form-control-lg {
@@ -271,23 +270,26 @@ h1.title {
 }
 
 .label-width {
-  min-width: 140px; /* Increased label width */
+  min-width: 140px; /* Consistent label width */
   margin-right: 10px; /* Spacing between label and input */
   font-size: 1.25rem; /* Larger font size for labels */
-  text-align: right; /* Align labels to the right */
 }
 
 .form-group {
   margin-bottom: 1rem; /* Increased spacing between form groups */
   display: flex;
   align-items: center; /* Vertically center labels with inputs */
+  justify-content: center; /* Center-align the labels and inputs */
+}
+
+.form-group .form-control {
+  flex-grow: 1; /* Make the input fields take up the remaining space */
 }
 
 .btn-primary {
   background-color: #007bff;
   border-color: #007bff;
   width: 100%;
-  max-width: 700px; /* Align the button width with the form */
 }
 
 .btn-primary:hover {
@@ -308,9 +310,6 @@ h1.title {
   padding: 1rem 2rem;
   font-size: 1.5rem;
   margin-top: 20px; /* Add margin to space out from the form */
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
 }
 
 </style>
