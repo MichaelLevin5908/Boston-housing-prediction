@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Prediction from './views/Prediction';
+import Prediction from './views/prediction';
 
 Vue.use(VueRouter);
 

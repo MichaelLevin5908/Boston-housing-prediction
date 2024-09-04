@@ -20,24 +20,25 @@ def hello_world():
 @app.route("/predict", methods=["GET"])
 def predict():
     if request.method == 'GET':
-        crim = float(request.args.get('CRIM', 0))
-        zn = float(request.args.get('ZN', 0))
-        indus = float(request.args.get('INDUS', 0))
-        chas = float(request.args.get('CHAS', 0))
-        nox = float(request.args.get('NOX', 0))
-        rm = float(request.args.get('RM', 0))
-        age = float(request.args.get('AGE', 0))
-        dis = float(request.args.get('DIS', 0))
-        rad = float(request.args.get('RAD', 0))
-        tax = float(request.args.get('TAX', 0))
-        ptratio = float(request.args.get('PTRATIO', 0))
-        lstat = float(request.args.get('LSTAT', 0))
+        
+        crim = float(request.args.get('CRIM'))
+        zn = float(request.args.get('ZN'))
+        indus = float(request.args.get('INDUS'))
+        chas = float(request.args.get('CHAS'))
+        nox = float(request.args.get('NOX'))
+        rm = float(request.args.get('RM'))
+        age = float(request.args.get('AGE'))
+        dis = float(request.args.get('DIS'))
+        rad = float(request.args.get('RAD'))
+        tax = float(request.args.get('TAX'))
+        ptratio = float(request.args.get('PTRATIO'))
+        lstat = float(request.args.get('LSTAT'))
 
         final_features = [[crim, zn, indus, chas, nox, rm, age, dis, rad, tax, ptratio, lstat]]
 
         prediction = model.predict(final_features)
 
-        return jsonify(str("Predicted House Price: $" + f'{prediction[0]:,.2f}'))
+    return jsonify(str("Housing Price:  " + str(prediction[0])))
 
 if __name__ == '__main__':
     app.run(debug=True)

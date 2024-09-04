@@ -10,7 +10,6 @@
     <div class="p-2">
       <form @submit.prevent>
         <div class="form-row" style="max-width:500px">
-          <!-- Existing fields -->
           <div class="form-group col-md-4">
             <label class="col-5 px-0" for="CRIM">CRIM</label>
             <input
@@ -20,14 +19,112 @@
               id="CRIM"
             />
           </div>
-          <!-- Add other fields here... -->
           <div class="form-group col-md-4">
-            <label class="col-5 px-0" for="MEDV">MEDV</label>
+            <label class="col-5 px-0" for="ZN">ZN</label>
             <input
               class="form-control"
-              v-model.trim="housingData.MEDV"
+              v-model.trim="housingData.ZN"
               type="number"
-              id="MEDV"
+              id="ZN"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label class="col-5 px-0" for="INDUS">INDUS</label>
+            <input
+              class="form-control"
+              v-model.trim="housingData.INDUS"
+              type="number"
+              id="INDUS"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label class="col-5 px-0" for="CHAS">CHAS</label>
+            <input
+              class="form-control"
+              v-model.trim="housingData.CHAS"
+              type="number"
+              id="CHAS"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label class="col-5 px-0" for="NOX">NOX</label>
+            <input
+              class="form-control"
+              v-model.trim="housingData.NOX"
+              type="number"
+              id="NOX"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label class="col-5 px-0" for="RM">RM</label>
+            <input
+              class="form-control"
+              v-model.trim="housingData.RM"
+              type="number"
+              id="RM"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label class="col-5 px-0" for="AGE">AGE</label>
+            <input
+              class="form-control"
+              v-model.trim="housingData.AGE"
+              type="number"
+              id="AGE"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label class="col-5 px-0" for="DIS">DIS</label>
+            <input
+              class="form-control"
+              v-model.trim="housingData.DIS"
+              type="number"
+              id="DIS"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label class="col-5 px-0" for="RAD">RAD</label>
+            <input
+              class="form-control"
+              v-model.trim="housingData.RAD"
+              type="number"
+              id="RAD"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label class="col-5 px-0" for="TAX">TAX</label>
+            <input
+              class="form-control"
+              v-model.trim="housingData.TAX"
+              type="number"
+              id="TAX"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label class="col-5 px-0" for="PTRATIO">PTRATIO</label>
+            <input
+              class="form-control"
+              v-model.trim="housingData.PTRATIO"
+              type="number"
+              id="PTRATIO"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label class="col-5 px-0" for="B">B</label>
+            <input
+              class="form-control"
+              v-model.trim="housingData.B"
+              type="number"
+              id="B"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label class="col-5 px-0" for="LSTAT">LSTAT</label>
+            <input
+              class="form-control"
+              v-model.trim="housingData.LSTAT"
+              type="number"
+              id="LSTAT"
             />
           </div>
           <button
@@ -44,10 +141,9 @@
 </template>
 
 <script>
-import axios from 'axios';
-
+import { getAPI } from "@/axios";
 export default {
-  name: "Prediction",
+  name: "Posts",
   data() {
     return {
       housingData: {
@@ -64,13 +160,13 @@ export default {
         PTRATIO: "",
         LSTAT: ""
       },
-      APIResult: ""
+      APIResult: []
     };
   },
   methods: {
     predict() {
-      axios
-        .get("http://127.0.0.1:5000/predict", {
+      getAPI
+        .get("/predict", {
           params: {
             CRIM: this.housingData.CRIM,
             ZN: this.housingData.ZN,
@@ -102,6 +198,3 @@ export default {
 <style>
 /* Add your custom styles here */
 </style>
-
-
-  
