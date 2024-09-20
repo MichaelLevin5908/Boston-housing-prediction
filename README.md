@@ -2,6 +2,10 @@
 
 ![Boston-housing-prediction Logo](boston.png)
 
+## Overview
+
+This project provides a real-time housing price prediction tool using a machine learning model trained on the Boston Housing dataset. The project features a clean, user-friendly interface built with Vue.js, and is powered by a Flask API for backend operations. The model makes use of linear regression and hyperparameter tuning to ensure high accuracy in predictions. Users can input various housing parameters and instantly get predictions about house prices in a specified area.
+
 ## Features
 - Real-time housing pricing prediction
 - Linear modeling and hyperparameter tuning to ensure pricing accuracy
