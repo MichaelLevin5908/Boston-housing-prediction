@@ -1,9 +1,11 @@
 # Housing Data Analysis Project
 
-This project involves the analysis and modeling of housing data using various machine learning techniques. The dataset includes features such as crime rate, number of rooms, age of buildings, and more, to predict the median value of owner-occupied homes.
-
 ![Boston-housing-prediction Logo](boston.png)
 
+## Features
+- Real-time housing pricing prediction
+- Linear modeling and hyper maters tuning to ensure pricing accuracy
+- easy to use boxes to input your parameters for housing prediction using Vue and Flask API
 
 ## Video Link
 https://youtu.be/D5cPgbAMasg
@@ -12,6 +14,9 @@ https://youtu.be/D5cPgbAMasg
 
 - **housingproject.ipynb**: Jupyter Notebook containing data preprocessing, exploratory data analysis, and model training.
 - **HousingData.csv**: The dataset used for the analysis.
+- **Frontend**: Contains the frontend code for the housing prediction user interface.
+- **app.py**: The Flask API that handles backend requests and predictions.
+
 
 ## Getting Started
 
