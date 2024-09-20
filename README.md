@@ -4,8 +4,8 @@
 
 ## Features
 - Real-time housing pricing prediction
-- Linear modeling and hyper maters tuning to ensure pricing accuracy
-- easy to use boxes to input your parameters for housing prediction using Vue and Flask API
+- Linear modeling and hyperparameter tuning to ensure pricing accuracy
+- Easy-to-use input fields for housing prediction using Vue and Flask API
 
 ## Video Link
 https://youtu.be/D5cPgbAMasg
