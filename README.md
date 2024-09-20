@@ -2,6 +2,9 @@
 
 This project involves the analysis and modeling of housing data using various machine learning techniques. The dataset includes features such as crime rate, number of rooms, age of buildings, and more, to predict the median value of owner-occupied homes.
 
+![Boston-housing-prediction Logo](boston.png)
+
+
 ## Video Link
 https://youtu.be/D5cPgbAMasg
 
