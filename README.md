@@ -1,6 +1,6 @@
 # Housing Data Analysis Project
 
-![Boston-housing-prediction Logo](boston.png)
+![Boston-housing-prediction Logo](boston.png.png)
 
 ## Video Link
 https://youtu.be/D5cPgbAMasg
